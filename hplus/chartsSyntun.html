@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico"> <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css\animate.min.css" rel="stylesheet">
+    <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <script src="js/echarts.common.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
+    <script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <title>报表定制</title>
+    <style>
+        .tab_li li{
+            margin-right: 10px;
+        }
+        .agile-list li{
+            padding: 6px;
+        }
+        .sortable-list {
+            padding: 3px 3px;
+        }
+        table th{
+            text-align: center;
+        }
+        ul{
+            display: inline-block;
+        }
+        .inmodal .modal-header{
+            padding: 0px;
+        }
+        .bg{
+            background: #2d2d2d;
+            color: #fff;
+            border-color: #575757;
+            padding: 15px 20px 1px !important;
+        }
+        /*.ibox-content,.ibox-title{*/
+
+        /*}*/
+        .table>thead>tr>th {
+            border-bottom: 1px solid #fff;
+        }
+        .table-bordered>thead>tr>th{
+            background: #2d2d2d;
+        }
+        .btn-warning{
+            background-color:#F78400;
+            border-color:#F78400;
+            color:#FFF
+        }
+        .btn-warning.active,.btn-warning:active,.btn-warning:focus,.btn-warning:hover,.open .dropdown-toggle.btn-warning{
+            background-color:#f7a54a;
+            border-color:#f7a54a;
+            color:#FFF
+        }
+        .btn-warning.btn-outline{
+            color: #ffffff;
+        }
+        .fontColor{
+            color: #444;
+        }
+        .agile-list li.success-element{
+            border-left: 3px solid #F78400;
+        }
+    </style>
+</head>
+<body class="gray-bg" style="background: #2d2d2d">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="ibox-title bg">
+                <h5>报表定制</h5>
+                <div>
+                    <button type="button" class="btn btn-warning btn-sm" id="new_chart" data-toggle="modal" data-target="#myModal5" style="float: right;margin-top: -6px;">新增报表集</button>
+                </div>
+            </div>
+           <div class="ibox-content bg col-sm-12" style="text-align: center; min-height: 400px;height: auto;">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>报表集名称</th>
+                        <th>报表集创建时间</th>
+                        <th>报表集查看</th>
+                        <th colspan="2">报表集操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr id="ul">
+                        <td>1</td>
+                        <td>销售金额报表集</td>
+                        <td>2018-04-10</td>
+                        <td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>
+                        <td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>
+                        <td><button type="button" class="btn btn-danger" id="shanchu">删除</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>渠道销售报表集</td>
+                        <td>2018-03-10</td>
+                        <td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>
+                        <td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>
+                        <td><button type="button" class="btn btn-danger">删除</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>行业成交价报表集</td>
+                        <td>2018-04-21</td>
+                        <td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>
+                        <td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>
+                        <td><button type="button" class="btn btn-danger">删除</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ibox">
+                <div class="ibox-title bg">
+                    <h5>报表集内容</h5>
+                </div>
+                <div class="ibox-content bg col-sm-12" style="min-height: 400px;height: auto;">
+                    <ul class="sortable-list connectList agile-list ui-sortable" style="padding: 0px 15px; display: none" id="chartUl">
+                        <li class="success-element fontColor">空气净化器</li>
+                        <li class="success-element fontColor">功能奶</li>
+                        <li class="success-element fontColor">功能饮料</li>
+                        <li class="success-element fontColor">行业量价关系分析</li>
+                        <li class="success-element fontColor">行业销售量</li>
+                        <li class="success-element fontColor">空气净化器</li>
+                        <li class="success-element fontColor">功能奶</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h2 class="modal-title">创建报表集</h2>
+                    <small class="font-bold">请将选中的报表标题拖到右面</small></div>
+                <div class="modal-body" style="padding-bottom: 0px;">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="ibox">
+                                <div class="ibox-title">
+                                    <h5>报表列表</h5>
+                                </div>
+                                <div class="ibox-content" style="height: 400px">
+                                    <div class="row m-b-sm m-t-sm">
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="请输入报表名称" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="ibox">
+                                            <h3>数据报表</h3>
+                                            <ul class="sortable-list connectList agile-list ui-sortable">
+                                                <li class="success-element">行业量价关系分析</li>
+                                                <li class="success-element">行业用户评论分析</li>
+                                                <li class="success-element">行业量价关系分析</li>
+                                                <li class="success-element">行业成交价分析</li>
+                                                <li class="success-element">行业折扣率分析</li>
+                                                <li class="success-element" style="visibility:hidden"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="ibox">
+                                            <h3>行业概述</h3>
+                                            <ul class="sortable-list connectList agile-list ui-sortable">
+                                                <li class="success-element">行业概述</li>
+                                                <li class="success-element">行业量价关系分析</li>
+                                                <li class="success-element">渠道分析</li>
+                                                <li class="success-element">价格分析</li>
+                                                <li class="success-element">促销策略</li>
+                                                <li class="success-element">用户评论</li>
+                                                <li class="success-element" style="visibility:hidden"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="ibox">
+                                            <h3>品牌分类</h3>
+                                            <ul class="sortable-list connectList agile-list">
+                                                <li class="success-element">空气净化器</li>
+                                                <li class="success-element">功能奶</li>
+                                                <li class="success-element">功能饮料</li>
+                                                <li class="success-element">行业量价关系分析</li>
+                                                <li class="success-element">行业销售量</li>
+                                                <li class="info-element" style="visibility:hidden"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="ibox">
+                                <div class="ibox-title">
+                                    <h5>报表排序</h5>
+                                </div>
+                                <div class="ibox-content" style="height: 400px;position: fixed; right: 30px; overflow: auto; width: 21%;">
+                                        <ul class="sortable-list connectList agile-list" >
+                                            <li class="success-element">
+                                                行业销售量
+                                            </li>
+                                            <li class="success-element" style="visibility:hidden">
+
+                                            </li>
+                                        </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-warning">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="modal-backdrop fade in"></div>-->
+
+</div>
+</body>
+</html>
+
+
+<script src="js\jquery.min.js?v=2.1.4"></script>
+<script src="js\bootstrap.min.js?v=3.3.6"></script>
+<script src="js\jquery-ui-1.10.4.min.js"></script>
+<script src="js\content.min.js?v=1.0.0"></script>
+
+<script>
+    function look() {
+        $('#chartUl').css("display","block")
+    }
+    $(document).ready(function(){$(".sortable-list").sortable({connectWith:".connectList"}).disableSelection()});
+    $('#shanchu').click(function(){
+        $('#ul').css("display","none")
+
+    });
+</script>
+

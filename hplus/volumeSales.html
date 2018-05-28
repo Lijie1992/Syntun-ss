@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css\animate.min.css" rel="stylesheet">
+    <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <link href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/select2/select2.css">
+    <link rel="stylesheet" href="css/styleSyntun.css">
+    <!-- 引入组件库 -->
+    <script src="js\jquery.min.js?v=2.1.4"></script>
+    <script src="plugins/select2/select2.min.js"></script>
+    <script src="js\bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/echarts.common.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <title>行业销售量</title>
+</head>
+<body class="gray-bg" style="background: #2d2d2d;">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox-content">
+                <form id="searchForm" href="#">
+                    <table class="table tableUser" style="text-align: center;margin: 0px;">
+                        <tr>
+                            <td class="col-sm-4">
+                                <label class="col-sm-3 margin table-padding">时间：</label>
+                                <div class="col-sm-9 table-padding">
+                                   <div class="input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                        <input name="dtBegin" class="form-control height" placeholder="请选择" type="text" value="">
+                                        <span class="input-group-addon" style="background: #868686;padding: 3px;">到</span>
+                                        <input name="dtEnd" class="form-control height" placeholder="请选择" type="text" value="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-sm-2">
+                                <div class="btn-group">
+                                    <button class="btn btn-warning btn-sm">年</button>
+                                    <button class="btn btn-warning btn-sm">季</button>
+                                    <button class="btn btn-warning btn-sm">月</button>
+                                    <button class="btn btn-warning btn-sm">周</button>
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin table-padding">店铺类型：</label>
+                                <div class="col-sm-8 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>天猫</option>
+                                        <option>淘宝</option>
+                                        <option>一号店</option>
+                                        <option>网易严选</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin table-padding">贸易模式：</label>
+                                <div class="col-sm-8 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>牛奶</option>
+                                        <option>酸奶</option>
+                                        <option>果汁</option>
+                                        <option>可乐</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2">
+                                <label class="col-sm-3 margin table-padding">电商平台：</label>
+                                <div class="col-sm-8 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>天猫</option>
+                                        <option>淘宝</option>
+                                        <option>一号店</option>
+                                        <option>网易严选</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-2">
+                            <div class="col-sm-12" style="text-align: right">
+                            <p class='btn btn-warning btn-sm back-btn'> 查询</p>
+                            <p class='btn btn-warning btn-sm back-btn'>数据导出</p>
+                            </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div id="echartsDemo" style="width: 100%;height:350px;margin: auto;" ></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
+    });
+    var myChart = echarts.init(document.getElementById('echartsDemo'));
+    var option = {
+        title: {
+            text: '行业销售量',
+            left:'center',
+            top:'5%',
+            textStyle:{
+                color:'#fff',
+                fontStyle:'normal',
+            },
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        toolbox: {
+            show: true,
+            top:'5%',
+            feature: {
+                restore : {show: true},
+                saveAsImage: {
+                    show:true,
+                }
+            }
+        },
+        legend: {
+            data: ['销售量','销售量增长率'],
+            y: 'bottom',
+            textStyle:{
+                fontSize:15,
+                color:'#fff'
+            }
+        },
+        xAxis: [
+            {
+                splitLine: { show: false },//去除网格线
+                type: 'category',
+                axisLabel :{
+                    interval:0,
+//                    rotate: -300
+                },
+                data: [],
+                axisPointer: {
+                    type: 'shadow'
+                },
+
+                axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',//左边线的颜色
+                        width:'2'//坐标线的宽度
+                    }
+                },
+            }
+        ],
+        yAxis: [
+
+            {
+                splitLine: { show: false },//去除网格线
+                type: 'value',
+                name: '销售量',
+                axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',//左边线的颜色
+                        width:'2'//坐标线的宽度
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value} 元'
+                }
+            },
+            {
+                splitLine: { show: false },//去除网格线
+                type: 'value',
+                name: '销售量增长率',
+                axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',//左边线的颜色
+                        width:'2'//坐标线的宽度
+                    }
+                },
+//                min: 0,
+//                max: 100,
+//                interval: 10,
+                axisLabel: {
+                    formatter: '{value} %'
+                }
+            },
+        ],
+        series: [
+            {
+                name: '销售额',
+                type: 'bar',
+                data: [],
+                barWidth : 40,//柱图宽度
+                color: ['#f7a54a']
+            },
+            {
+                name: '销售额增长率',
+                type: 'line',
+                yAxisIndex: 1,
+                color: ['#858688'],
+                data: [10, 20, 40, 30, 60, 50, 40,99,33,65,87]
+            },
+        ]
+    };
+    $.ajax({
+        type : "get",
+        url : "http://newdm.syntun.com:8089/index.php/api/index/index",
+        dataType : "json",
+        success : function(result) {
+            debugger
+            option.xAxis[0].data = result.xAxis.data;
+            option.series[0].data  = result.sales_amount.data;
+            option.series[1].data  = result.sales_amount_rate.data;
+//            var series_arr = result.sales_amount.data;
+//            for (var i = 0; i < series_arr.length; i++) {
+//                option.series[i] = result.sales_amount.data[i];
+//            }
+//            var leg = result.sales_amount.name
+            myChart.setOption(option);
+        }
+    });
+    // 使用刚指定的配置项和数据显示图表。
+</script>

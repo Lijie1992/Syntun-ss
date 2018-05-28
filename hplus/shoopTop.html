@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico"> <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css\animate.min.css" rel="stylesheet">
+    <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleSyntun.css">
+    <script src="js/echarts.common.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
+    <script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <title>TOP10店铺表现</title>
+    <style>
+        #table td{
+            border: 1px solid #e7e7e7;
+        }
+    </style>
+</head>
+<body class="gray-bg" style="background: #2d2d2d;">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox-content">
+                <form id="searchForm" href="#">
+                    <table class="table tableUser" style="text-align: center;margin: 0px;">
+                        <tr>
+                            <td class="col-sm-4">
+                                <label class="col-sm-3 margin table-padding">时间：</label>
+                                <div class="col-sm-9 table-padding">
+                                    <div class="input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                        <input name="dtBegin" class="form-control height" placeholder="请选择" type="text" value="">
+                                        <span class="input-group-addon" style="background: #868686;padding: 3px;">到</span>
+                                        <input name="dtEnd" class="form-control height" placeholder="请选择" type="text" value="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-sm-2">
+                                <div class="btn-group">
+                                    <button class="btn btn-warning btn-sm">年</button>
+                                    <button class="btn btn-warning btn-sm">季</button>
+                                    <button class="btn btn-warning btn-sm">月</button>
+                                    <button class="btn btn-warning btn-sm">周</button>
+                                </div>
+                            </td>
+                            <td class="col-sm-2">
+                                <div class="col-sm-12" style="text-align: right">
+                                    <p class='btn btn-warning btn-sm back-btn'> 查询</p>
+                                    <p class='btn btn-warning btn-sm back-btn'>数据导出</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="ibox-content" style="margin-top: 40px;">
+                <table class="table table-bordered" style="text-align: center" id="table">
+                    <thead>
+                    <tr>
+                        <th style="background: #2d2d2d;text-align: center" rowspan="2">排名</th>
+                        <th style="background: #2d2d2d;text-align: center" rowspan="2">店铺</th>
+                        <th style="background: #2d2d2d;text-align: center" colspan="2">份额</th>
+                    </tr>
+                    <tr>
+                        <th style="background: #2d2d2d;text-align: center">2018 YTD</th>
+                        <th style="background: #2d2d2d;text-align: center">2018 04</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>婴童频道</td>
+                        <td>12%</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>唯宝孕婴童</td>
+                        <td>2%</td>
+                        <td>20.2%</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>俊娃母婴专卖店</td>
+                        <td>5%</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>七个葫芦娃旗舰店</td>
+                        <td>7%</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>星娃母婴专卖店</td>
+                        <td>19%</td>
+                        <td>42%</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>婴童频道</td>
+                        <td>12%</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>唯宝孕婴童</td>
+                        <td>2%</td>
+                        <td>20.2%</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>俊娃母婴专卖店</td>
+                        <td>5%</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>七个葫芦娃旗舰店</td>
+                        <td>7%</td>
+                        <td>23.6%</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>星娃母婴专卖店</td>
+                        <td>19%</td>
+                        <td>42%</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js\jquery.min.js?v=2.1.4"></script>
+<script src="js\bootstrap.min.js?v=3.3.6"></script>
+<script src="js\jquery-ui-1.10.4.min.js"></script>
+<script src="js\content.min.js?v=1.0.0"></script>
+<script>
+    $(document).ready(function(){
+        $("#table tr:odd").css("background-color", "#252525");//为双数行表格设置背颜色素
+        $("#table th").css("background-color", "#252525");//为双数行表格设置背颜色素
+    });
+</script>
+
+

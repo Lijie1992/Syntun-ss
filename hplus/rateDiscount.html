@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico"> <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css\animate.min.css" rel="stylesheet">
+    <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <link href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="js\jquery.min.js?v=2.1.4"></script>
+    <script src="js\bootstrap.min.js?v=3.3.6"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="js/echarts.common.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <!--<script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>-->
+    <script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <!--<script src="plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>-->
+    <title>行业折扣率分析</title>
+    <style>
+        .margin{
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox-title">
+                <h5>行业折扣率分析</h5>
+                <div>
+                    <button type="button" class="btn btn-primary btn-sm" style="float: right;margin-top: -6px;">数据导出</button>
+                </div>
+            </div>
+            <div class="ibox-content col-sm-12" style="padding: 0px">
+                <form id="searchForm" href="#">
+                    <table class="table" style="text-align: center;margin-bottom:0px">
+                        <tr>
+                            <td class="col-sm-5">
+                                <label class="col-sm-3 margin">时间选择：</label>
+                                <div class="input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                    <input name="dtBegin" class="form-control" style="font-size: 13px;" type="text" value="">
+                                    <span class="input-group-addon">到</span>
+                                    <input name="dtEnd" class="form-control" style="font-size: 13px;" type="text" value="">
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin">品类：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="account">
+                                        <option>牛奶</option>
+                                        <option>酸奶</option>
+                                        <option>果汁</option>
+                                        <option>可乐</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin">品牌：</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" name="account">
+                                        <option>伊利</option>
+                                        <option>蒙牛</option>
+                                        <option>三元</option>
+                                        <option>特仑苏</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-2">
+                                <div class="col-sm-12">
+                                    <button class='btn btn-primary btn-sm back-btn'> 查询 </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div id="echartsDemo" style="width: 90%;height:400px;margin: auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
+    });
+    var data = [
+        [[28604,77,17096869,'Australia',1990],[31163,77.4,27662440,'Canada',1990],[1516,68,1154605773,'China',1990],[13670,74.7,10582082,'Cuba',1990],[28599,75,4986705,'Finland',1990],[29476,77.1,56943299,'France',1990],[31476,75.4,78958237,'Germany',1990],[28666,78.1,254830,'Iceland',1990],[1777,57.7,870601776,'India',1990],[29550,79.1,122249285,'Japan',1990],[2076,67.9,20194354,'North Korea',1990],[12087,72,42972254,'South Korea',1990],[24021,75.4,3397534,'New Zealand',1990],[43296,76.8,4240375,'Norway',1990],[10088,70.8,38195258,'Poland',1990],[19349,69.6,147568552,'Russia',1990],[10670,67.3,53994605,'Turkey',1990],[26424,75.7,57110117,'United Kingdom',1990],[37062,75.4,252847810,'United States',1990]],
+
+        [[44056,81.8,23968973,'Australia',2015],[43294,81.7,35939927,'Canada',2015],[13334,76.9,1376048943,'China',2015],[21291,78.5,11389562,'Cuba',2015],[38923,80.8,5503457,'Finland',2015],[37599,81.9,64395345,'France',2015],[44053,81.1,80688545,'Germany',2015],[42182,82.8,329425,'Iceland',2015],[5903,66.8,1311050527,'India',2015],[36162,83.5,126573481,'Japan',2015],[1390,71.4,25155317,'North Korea',2015],[34644,80.7,50293439,'South Korea',2015],[34186,80.6,4528526,'New Zealand',2015],[64304,81.6,5210967,'Norway',2015],[24787,77.3,38611794,'Poland',2015],[23038,73.13,143456918,'Russia',2015],[19360,76.5,78665830,'Turkey',2015],[38225,81.4,64715810,'United Kingdom',2015],[53354,79.1,321773631,'United States',2015]]
+    ];
+    var myChart = echarts.init(document.getElementById('echartsDemo'));
+    var option = {
+        title: {
+            text: '行业折扣率气泡图',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+                restore : {show: true},
+                saveAsImage: {
+                    show:true,
+                }
+            }
+        },
+        grid: {
+//            y2: 90,
+        },
+        legend: {
+            data: ['1990', '2015'],
+            y: 'bottom',
+        },
+        xAxis: {
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            }
+        },
+        yAxis: {
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            },
+            scale: true
+        },
+        series: [
+            {
+                name: '1990',
+                data: data[0],
+                type: 'scatter',
+                symbolSize: function (data) {
+                    return Math.sqrt(data[2]) / 5e2;
+                },
+                 label: {
+                     emphasis: {
+                         // show: true,
+                         formatter: function (param) {
+                             return param.data[3];
+                         },
+                         position: 'top'
+                     }
+                 },
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 10,
+                        shadowColor: 'rgba(120, 36, 50, 0.5)',
+                        shadowOffsetY: 5,
+                        color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                            offset: 0,
+                            color: 'rgb(251, 118, 123)'
+                        }, {
+                            offset: 1,
+                            color: 'rgb(204, 46, 72)'
+                        }])
+                    }
+                }
+            },
+            {
+                name: '2015',
+                data: data[1],
+                type: 'scatter',
+                symbolSize: function (data) {
+                    return Math.sqrt(data[2]) / 5e2;
+                },
+                label: {
+                    emphasis: {
+                        show: true,
+                        formatter: function (param) {
+                            return param.data[3];
+                        },
+                        position: 'top'
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        shadowBlur: 10,
+                        shadowColor: 'rgba(25, 100, 150, 0.5)',
+                        shadowOffsetY: 5,
+                        color: new echarts.graphic.RadialGradient(0.4, 0.3, 1, [{
+                            offset: 0,
+                            color: 'rgb(129, 227, 238)'
+                        }, {
+                            offset: 1,
+                            color: 'rgb(25, 183, 207)'
+                        }])
+                    }
+                }
+            },
+        ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>

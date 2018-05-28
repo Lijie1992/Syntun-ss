@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>Syntun</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css\animate.min.css" rel="stylesheet">
+    <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <link href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+    <style>
+        .nav>li>a{
+            color: #ffffff;
+        }
+        .nav-second-level li a:visited{
+            background-color: #F78400 !important;
+            color: #ffffff;
+        }
+        .content-tabs .roll-nav{
+            color: #ffffff;
+        }
+        .nav.navbar-right>li>a{
+            color: #ffffff;
+        }
+        .nav{
+            background: #252525 !important;
+        }
+        #side-menu a:hover,#side-menu a:visited,#side-menu a:active{
+            background-color: #F78400 !important;
+        }
+        /*设置*/
+        .nav-tabs a:hover,.nav-tabs a:visited{
+            background-color: #F78400 !important;
+            color: #fff !important;
+        }
+        .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+            color: #fff;
+
+        }
+        .nav>li.active{
+            border-left: 4px solid #F78400;
+            background: #F78400;
+        }
+        .nav>li.shezhi{
+            border: none !important;
+        }
+        .page-tabs a.active{
+            background: #F78400;
+            color: #fff;
+        }
+        .background{
+            background: #252525 !important;
+        }
+        .border-bottom{
+            border-bottom: 1px solid #858585!important;
+        }
+        .page-tabs a{
+            border-right: solid 1px #858585;
+            color: #ffffff;
+        }
+        .content-tabs{
+            border-bottom: 2px solid #858585!important;
+        }
+        .footer{
+            border-bottom: solid 1px #2d2d2d!important;
+            border-top: solid 1px #858585!important;
+        }
+        .roll-right{
+            border-left: solid 1px #858585 !important;
+        }
+        .roll-left{
+            border-right: solid 1px #858585 !important;
+        }
+        .btn-primary{
+            background-color: #F78400 !important;
+            border-color: #F78400;
+        }
+        body{
+            background: #2d2d2d!important;"
+        }
+
+    </style>
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden;background: #2d2d2d!important;">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse" style="background: #252525;">
+                <ul class="nav" id="side-menu" style="font-size: 16px">
+                    <li class="nav-header" style="background: #252525;">
+                        <div class="dropdown profile-element" style="text-align: center;">
+                            <span><img alt="image" class="" src="img\syntun_logo.png"></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <img src="img/logos.png" height="48" width="130" style="margin-top: 5px;"/>
+                                    <!--<span class="block m-t-xs" style="font-size: 24px"><strong class="font-bold"></strong></span>-->
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">行业概览</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="industrySales.html">行业销售额</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="volumeSales.html">行业销售量</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="analysisShop.html">店铺类型分析</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="analysisShop.html">贸易模式分析</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="analysisShop.html">电商平台分析</a>
+                            </li>
+                            <li>
+                                <a href="marketAnalysis.html" class="J_menuItem">细分市场分析</a>
+                            </li>
+                            <li>
+                                <a href="priceAnalysis.html" class="J_menuItem">行业成交价分析</a>
+                            </li>
+                            <li>
+                                <a href="discountAnalysis.html" class="J_menuItem">行业折扣率分析</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="J_menuItem">
+                            <i class="fa fa-columns"></i>
+                            <span class="nav-label">品牌分析</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="competeAnalysis.html">品牌竞争分析</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="skuAnalysis.html">品牌动销SKU分析</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="shoptypeAnalysis.html">
+                                    <span class="nav-label">店铺类型竞争分析</span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="brandConcentration.html">品牌集中度</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="platformAnalysis.html">平台类型竞争分析</a>
+                            </li>
+                            <li>
+                                <a href="AveragePriceAnalysis.html" class="J_menuItem">成交均价分析</a>
+                            </li>
+                            <li>
+                                <a href="skuTop.html" class="J_menuItem">TOP10品牌排行</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="J_menuItem">
+                            <i class="fa fa-table"></i>
+                            <span class="nav-label">渠道分析</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="chanlskuAnalysis.html">渠道动销SKU分析</a>
+                            </li>
+                            <li>
+                                <a href="#">店铺销售分析 <span class="fa arrow"></span></a>
+                                <!--<a class="J_menuItem" href="#">店铺销售分析</a>-->
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="shopType.html">分店铺类型</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="shoopCenter.html">店铺集中度</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="shoopTop.html">TOP店铺表现</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="AveragePriceAnalysis.html">成交均价分析</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="rataAnalysis.html">折扣率分析</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <span class="nav-label">细分市场分析</span><span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">产品属性 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="specialType.html">特殊品类</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">包装属性 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="packingType.html">包装方式</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="packingSpecifications.html">包装规格</a>
+                                    </li>
+                                    <li>
+                                        <a class="J_menuItem" href="packingCapacity.html">包装容量</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">人群属性 <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a class="J_menuItem" href="specialType.html">适用人群</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="J_menuItem" href="chartsSyntun.html">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">我的定制 </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;background: #252525;">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <!--<ul class="nav navbar-top-links navbar-right">-->
+                        <!--<li class="dropdown hidden-xs">-->
+                            <!--<a class="right-sidebar-toggle" aria-expanded="false">-->
+                                <!--<i class="fa fa-tasks"></i> 主题-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown hidden-xs">
+                            <a data-toggle="modal" data-target="#myModal5" id="shezhi">
+                                <i class="fa fa-tasks"></i> 设置
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <button class="roll-nav roll-left J_tabLeft background"><i class="fa fa-backward"></i></button>
+                <nav class="page-tabs J_menuTabs background">
+                    <div class="page-tabs-content">
+                        <a href="javascript:;" class="active J_menuTab" data-id="org.html">首页</a>
+                    </div>
+                </nav>
+                <button class="roll-nav roll-right J_tabRight background"><i class="fa fa-forward"></i></button>
+                <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown J_tabClose background" data-toggle="dropdown">关闭操作<span class="caret"></span></button>
+                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                        <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                        </li>
+                        <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="login.html" class="roll-nav roll-right J_tabExit background"><i class="fa fa fa-sign-out"></i> 退出</a>
+            </div>
+            <!--主体内容-->
+            <div class="row J_mainContent" id="content-main">
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="index_v1.html" seamless="" style="background: #2d2d2d"></iframe>
+            </div>
+            <!--版权信息-->
+            <div class="footer" style="background: #252525;">
+                <div class="pull-right">&copy; 2014-2018 <a href="http://www.syntun.com.cn/" target="_blank" style="color:#fd9826"> Syntun </a>
+                </div>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+        <!--右侧边栏开始-->
+        <div id="right-sidebar">
+            <div class="sidebar-container">
+                <!--<ul class="nav nav-tabs navs-3">-->
+                    <!--<li class="active">-->
+                        <!--<a data-toggle="tab" href="#tab-1">-->
+                            <!--<i class="fa fa-gear"></i> 主题-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<div class="tab-content">-->
+                    <!--<div id="tab-1" class="tab-pane active">-->
+                        <!--<div class="sidebar-title">-->
+                            <!--<h3> <i class="fa fa-comments-o"></i> 主题设置</h3>-->
+                            <!--<small><i class="fa fa-tim"></i> 你可以从这里选择和预览主题的布局和样式，这些设置会被保存在本地，下次打开的时候会直接应用这些设置。</small>-->
+                        <!--</div>-->
+                        <!--<div class="skin-setttings">-->
+                            <!--<div class="title">主题设置</div>-->
+                            <!--<div class="setings-item">-->
+                                <!--<span>收起左侧菜单</span>-->
+                                <!--<div class="switch">-->
+                                    <!--<div class="onoffswitch">-->
+                                        <!--<input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="collapsemenu">-->
+                                        <!--<label class="onoffswitch-label" for="collapsemenu">-->
+                                            <!--<span class="onoffswitch-inner"></span>-->
+                                            <!--<span class="onoffswitch-switch"></span>-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="setings-item">-->
+                                <!--<span>固定顶部</span>-->
+
+                                <!--<div class="switch">-->
+                                    <!--<div class="onoffswitch">-->
+                                        <!--<input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox" id="fixednavbar">-->
+                                        <!--<label class="onoffswitch-label" for="fixednavbar">-->
+                                            <!--<span class="onoffswitch-inner"></span>-->
+                                            <!--<span class="onoffswitch-switch"></span>-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="setings-item">-->
+                                <!--<span>-->
+                        <!--固定宽度-->
+                    <!--</span>-->
+
+                                <!--<div class="switch">-->
+                                    <!--<div class="onoffswitch">-->
+                                        <!--<input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox" id="boxedlayout">-->
+                                        <!--<label class="onoffswitch-label" for="boxedlayout">-->
+                                            <!--<span class="onoffswitch-inner"></span>-->
+                                            <!--<span class="onoffswitch-switch"></span>-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="title">皮肤选择</div>-->
+                            <!--<div class="setings-item default-skin nb">-->
+                                <!--<span class="skin-name ">-->
+                         <!--<a href="#" class="s-skin-0">-->
+                             <!--默认皮肤-->
+                         <!--</a>-->
+                    <!--</span>-->
+                            <!--</div>-->
+                            <!--<div class="setings-item blue-skin nb">-->
+                                <!--<span class="skin-name ">-->
+                        <!--<a href="#" class="s-skin-1">-->
+                            <!--蓝色主题-->
+                        <!--</a>-->
+                    <!--</span>-->
+                            <!--</div>-->
+                            <!--<div class="setings-item yellow-skin nb">-->
+                                <!--<span class="skin-name ">-->
+                        <!--<a href="#" class="s-skin-3">-->
+                            <!--黄色/紫色主题-->
+                        <!--</a>-->
+                    <!--</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <!--右侧边栏结束-->
+
+        <!--个人设置弹窗-->
+        <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h2 class="modal-title">设置</h2>
+                    <div class="modal-body" style="padding-bottom: 20px;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="ibox-content">
+                                    <div>
+                                        <ul class="nav nav-tabs">
+                                            <li class="active shezhi">
+                                                <a data-toggle="tab" href="#tab-3" aria-expanded="true"><i class="fa fa-user"></i> 基本信息</a>
+                                            </li>
+                                            <li class="shezhi">
+                                                <a data-toggle="tab" href="#tab-4" aria-expanded="false"><i class="fa fa-briefcase"></i> 偏好设置</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div id="tab-3" class="tab-pane active" style="height: 300px">
+                                                    1
+                                            </div>
+                                            <div id="tab-4" class="tab-pane" style="height: 300px">
+                                                    2
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="js\jquery.min.js?v=2.1.4"></script>
+<script src="js\bootstrap.min.js?v=3.3.6"></script>
+<script src="js\plugins\metisMenu\jquery.metisMenu.js"></script>
+<script src="js\plugins\slimscroll\jquery.slimscroll.min.js"></script>
+<script src="js\plugins\layer\layer.min.js"></script>
+<script src="js\hplus.min.js?v=4.1.0"></script>
+<script type="text/javascript" src="js\contabs.min.js"></script>
+<script src="js\plugins\pace\pace.min.js"></script>
+<script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
+<script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+</html>

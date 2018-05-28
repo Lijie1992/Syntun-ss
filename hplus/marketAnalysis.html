@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css\animate.min.css" rel="stylesheet">
+    <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <link href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/select2/select2.css">
+    <link rel="stylesheet" href="css/styleSyntun.css">
+    <!-- 引入组件库 -->
+    <script src="js\jquery.min.js?v=2.1.4"></script>
+    <script src="plugins/select2/select2.min.js"></script>
+    <script src="js\bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/echarts.common.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <title>细分市场分析</title>
+</head>
+<body class="gray-bg" style="background: #2d2d2d;">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox-content">
+                <form id="searchForm" href="#">
+                    <table class="table tableUser" style="text-align: center;margin: 0px;">
+                        <tr>
+                            <td class="col-sm-4">
+                                <label class="col-sm-3 margin table-padding">时间：</label>
+                                <div class="col-sm-9 table-padding">
+                                   <div class="input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                        <input name="dtBegin" class="form-control height" placeholder="请选择" type="text" value="">
+                                        <span class="input-group-addon" style="background: #868686;padding: 3px;">到</span>
+                                        <input name="dtEnd" class="form-control height" placeholder="请选择" type="text" value="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-sm-1">
+                                <div class="btn-group">
+                                    <button class="btn btn-warning btn-sm">年</button>
+                                    <button class="btn btn-warning btn-sm">季</button>
+                                    <button class="btn btn-warning btn-sm">月</button>
+                                    <button class="btn btn-warning btn-sm">周</button>
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin table-padding">店铺类型：</label>
+                                <div class="col-sm-8 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>天猫</option>
+                                        <option>淘宝</option>
+                                        <option>一号店</option>
+                                        <option>网易严选</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin table-padding">品牌：</label>
+                                <div class="col-sm-8 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>牛奶</option>
+                                        <option>酸奶</option>
+                                        <option>果汁</option>
+                                        <option>可乐</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin table-padding">贸易模式：</label>
+                                <div class="col-sm-7 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>天猫</option>
+                                        <opion>淘宝</opion>
+                                        <option>一号店</option>
+                                        <option>网易严选</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-3">
+                                <label class="col-sm-4 margin table-padding">电商平台：</label>
+                                <div class="col-sm-7 table-padding">
+                                    <select class="form-control select2" name="state">
+                                        <option></option>
+                                        <option>天猫</option>
+                                        <opion>淘宝</opion>
+                                        <option>一号店</option>
+                                        <option>网易严选</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td class="col-sm-2">
+                                <div class="col-sm-12" style="text-align: right">
+                                    <p class='btn btn-warning btn-sm back-btn'> 查询</p>
+                                    <p class='btn btn-warning btn-sm back-btn'>数据导出</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <div id="echartsDemo" style="width: 100%;height:350px;margin: auto;" ></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
+    });
+    function random(){
+        var r = Math.round(Math.random() * 300);
+        return (r * (r % 2 == 0 ? 1 : -1));
+//        return r;
+    }
+
+    function randomDataArray() {
+        var d = [];
+        var len = 10;
+        while (len--) {
+            d.push([
+                random(),
+                random(),
+                Math.abs(random()),
+            ]);
+        }
+        return d;
+    }
+   $(document).ready(function () {
+       var myChart = echarts.init(document.getElementById('echartsDemo'));
+       var option = {
+           title: {
+               text: '细分市场分析',
+               left:'center',
+               top:'5%',
+               textStyle:{
+                   color:'#fff',
+                   fontStyle:'normal',
+               },
+           },
+           tooltip : {
+               trigger: 'axis',
+//               showDelay : 0,
+//               axisPointer:{
+//                   show: true,
+//                   type : 'cross',
+//                   lineStyle: {
+//                       type : 'dashed',
+//                       width : 1
+//                   }
+//               }
+           },
+           toolbox: {
+               show : true,
+               showTitle: true,
+               feature : {
+                   restore : {
+//                       show : true,
+                       title : '还原',
+                       color : 'red'
+                   },
+                   saveAsImage : {
+                       show : true,
+                       title : '保存为图片',
+                       type : 'jpeg'
+                   },
+               }
+           },
+           legend: {
+               data:['销售额', '销售额增长率','销量份额'],
+//               data:['scatter1','scatter2'],
+               y: 'bottom',
+               textStyle:{
+                fontSize:15,
+                color:'#fff'
+            }
+           },
+           xAxis : [
+               {
+                   type : 'value',
+                   splitLine: { show: false },//去除网格线
+                   axisLabel :{
+                        interval:0,
+                    },
+                   axisLine: {
+                       lineStyle: {
+                           type: 'solid',
+                           color: '#fff',//左边线的颜色
+                           width:'2'//坐标线的宽度
+                       }
+                },
+//                   splitNumber: 4,
+//                   scale: true
+               }
+           ],
+           yAxis : [
+               {
+                   type : 'value',
+                   splitLine: { show: false },//去除网格线
+                   axisLabel :{
+                       interval:0,
+                   },
+                   axisLine: {
+                       lineStyle: {
+                           type: 'solid',
+                           color: '#fff',//左边线的颜色
+                           width:'2'//坐标线的宽度
+                       }
+                   },
+//                   splitNumber: 4,
+//                   scale: true
+               }
+           ],
+           series : [
+               {
+                   name:'销售额',
+                   type:'scatter',
+                   color: ['#ec7c3a'],
+                   symbolSize: function (value){
+                       return Math.round(value[2] / 5);
+                   },
+                   data: randomDataArray()
+               },
+               {
+                   name:'销售额增长率',
+                   type:'scatter',
+                   color: ['#5b9ed5'],
+                   symbolSize: function (value){
+                       return Math.round(value[2] / 5);
+                   },
+                   data: randomDataArray()
+               },
+               {
+                   name:'销量份额',
+                   type:'scatter',
+                   color: ['#a5a5a5'],
+                   symbolSize: function (value){
+                       return Math.round(value[2] / 5);
+                   },
+                   data: randomDataArray()
+               }
+           ]
+       };
+       myChart.setOption(option)
+   })
+</script>
