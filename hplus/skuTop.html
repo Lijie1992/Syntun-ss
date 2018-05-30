@@ -2,15 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="img/favicon.ico"> <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href="css\bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css\animate.min.css" rel="stylesheet">
     <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
+    <link href="css\plugins\datapicker\datepicker3.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/select2/select2.css">
     <link rel="stylesheet" href="css/styleSyntun.css">
+    <!-- 引入组件库 -->
+    <script src="js\jquery.min.js?v=2.1.4"></script>
+    <script src="plugins/select2/select2.min.js"></script>
+    <script src="js\bootstrap.min.js?v=3.3.6"></script>
     <script src="js/echarts.common.min.js"></script>
     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
-    <script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
-    <script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
     <title>TOP10品牌排行</title>
     <style>
         #table td{
@@ -102,13 +108,14 @@
 </div>
 </body>
 </html>
-<script src="js\jquery.min.js?v=2.1.4"></script>
-<script src="js\bootstrap.min.js?v=3.3.6"></script>
-<script src="js\jquery-ui-1.10.4.min.js"></script>
-<script src="js\content.min.js?v=1.0.0"></script>
 <script>
+
     $(document).ready(function(){
         $("#table tr:even").css("background-color", "#252525");//为双数行表格设置背颜色素
         $("#table th").css("background-color", "#252525");//为双数行表格设置背颜色素
+    });
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
     });
 </script>

@@ -1,0 +1,82 @@
+<form id="searchForm" href="#" style="background: #2d2d2d;color: #fff;">
+    <table class="table tableUser" style="text-align: center;margin: 0px;">
+        <tr>
+            <td class="col-sm-4">
+                <label class="col-sm-3 margin table-padding">选择时间：</label>
+                <div class="col-sm-9 table-padding">
+                    <div class="input-group input-medium date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                        <input name="dtBegin" class="form-control height" placeholder="请选择" type="text" value="">
+                        <span class="input-group-addon" style="background: #868686;padding: 3px;">到</span>
+                        <input name="dtEnd" class="form-control height" placeholder="请选择" type="text" value="">
+                    </div>
+                </div>
+            </td>
+            <td class="col-sm-2">
+                <div class="btn-group">
+                    <button class="btn btn-warning btn-sm">年</button>
+                    <button class="btn btn-warning btn-sm">季</button>
+                    <button class="btn btn-warning btn-sm">月</button>
+                    <!--<button class="btn btn-warning btn-sm">周</button>-->
+                </div>
+            </td>
+            <td class="col-sm-3">
+                <label class="col-sm-4 margin table-padding">店铺类型：</label>
+                <div class="col-sm-8 table-padding">
+                    <select class="form-control select2" name="state">
+                        <option></option>
+                        <option>天猫</option>
+                        <option>淘宝</option>
+                        <option>一号店</option>
+                        <option>网易严选</option>
+                    </select>
+                </div>
+            </td>
+            <td class="col-sm-3">
+                <label class="col-sm-4 margin table-padding">贸易模式：</label>
+                <div class="col-sm-8 table-padding">
+                    <select class="form-control select2" name="state">
+                        <option></option>
+                        <option>牛奶</option>
+                        <option>酸奶</option>
+                        <option>果汁</option>
+                        <option>可乐</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-4">
+                <label class="col-sm-3 margin table-padding">电商平台：</label>
+                <div class="col-sm-9 table-padding">
+                    <select class="form-control select2" name="state">
+                        <option></option>
+                        <option>天猫</option>
+                        <option>淘宝</option>
+                        <option>一号店</option>
+                        <option>网易严选</option>
+                    </select>
+                </div>
+            </td>
+            <td class="col-sm-2">
+                <div style="text-align: left;margin-left: 7%;">
+                    <p class='btn btn-warning btn-sm back-btn'> 查询</p>
+                </div>
+            </td>
+            <td class="col-sm-3"></td>
+            <td class="col-sm-3" style="text-align: right;">
+                <p class='btn btn-warning btn-sm back-btn'>数据导出</p>
+                <p class='btn btn-warning btn-sm back-btn'>加入定制</p>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript">
+    debugger
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+    $(".date-picker").datepicker({
+        language: "zh-CN",
+        autoclose: true
+    });
+</script>

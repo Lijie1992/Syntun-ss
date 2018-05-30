@@ -1,0 +1,73 @@
+.nav>li>a{
+    color: #ffffff;
+}
+.nav-second-level li a:visited{
+    background-color: #F78400 !important;
+    color: #ffffff;
+}
+.content-tabs .roll-nav{
+    color: #ffffff;
+}
+.nav.navbar-right>li>a{
+    color: #ffffff;
+}
+.nav{
+    background: #252525 !important;
+}
+#side-menu a:hover,#side-menu a:visited,#side-menu a:active{
+    background-color: #F78400 !important;
+}
+/*设置*/
+.nav-tabs a:hover,.nav-tabs a:visited{
+    background-color: #F78400 !important;
+    color: #fff !important;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    color: #fff;
+
+}
+.nav>li.active{
+    border-left: 4px solid #F78400;
+    background: #F78400;
+}
+.nav>li.shezhi{
+    border: none !important;
+}
+.page-tabs a.active{
+    background: #F78400;
+    color: #fff;
+}
+.background{
+    background: #252525 !important;
+}
+.border-bottom{
+    border-bottom: 1px solid #858585!important;
+}
+.page-tabs a{
+    border-right: solid 1px #858585;
+    color: #ffffff;
+}
+.content-tabs{
+    border-bottom: 2px solid #858585!important;
+}
+.footer{
+    border-bottom: solid 1px #2d2d2d!important;
+    border-top: solid 1px #858585!important;
+}
+.roll-right{
+    border-left: solid 1px #858585 !important;
+}
+.roll-left{
+    border-right: solid 1px #858585 !important;
+}
+.btn-primary{
+    background-color: #F78400 !important;
+    border-color: #F78400;
+}
+body{
+    background: #2d2d2d!important;"
+}
+.setBox{
+    width: 40%;
+    margin-top: 15%;
+}
