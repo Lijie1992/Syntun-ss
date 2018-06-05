@@ -24,7 +24,6 @@
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
     color: #fff;
-
 }
 .nav>li.active{
     border-left: 4px solid #F78400;
@@ -60,14 +59,22 @@
 .roll-left{
     border-right: solid 1px #858585 !important;
 }
-.btn-primary{
-    background-color: #F78400 !important;
-    border-color: #F78400;
-}
+/*.btn-primary{*/
+    /*background-color: #F78400 !important;*/
+    /*border-color: #F78400;*/
+/*}*/
 body{
     background: #2d2d2d!important;"
 }
 .setBox{
-    width: 40%;
+    width: 30%;
     margin-top: 15%;
+    margin-left: 5%;
+}
+.nav.navbar-right>li>a:hover{
+    background: #F78400;
+}
+.btn-primary:hover{
+    border-color: #F78400;
+    background: #F78400;
 }

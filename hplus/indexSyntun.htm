@@ -14,7 +14,10 @@
     <link href="css\font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="css\animate.min.css" rel="stylesheet">
     <link href="css\style.min.css?v=4.1.0" rel="stylesheet">
-    <link rel="stylesheet" href="css/indecSyntun.css">
+    <link rel="stylesheet" href="css/indexSyntun.css">
+    <!--<script src="js/jquery.validate.min.js"></script>-->
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
 </head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden;background: #2d2d2d!important;">
     <div id="wrapper">
@@ -35,7 +38,7 @@
                     </li>
                     <!--logo end-->
                     <li>
-                        <a class="J_menuItem" style="font-size: 18px">
+                        <a class="J_menuItem" style="font-size: 17px">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">行业概览</span>
                             <span class="fa arrow"></span>
@@ -48,13 +51,13 @@
                                 <a class="J_menuItem" href="volumeSales.html">行业销售量</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="analysisShop.html">店铺类型分析</a>
+                                <a class="J_menuItem" href="analysisShop1.html">店铺类型分析</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="analysisShop.html">贸易模式分析</a>
+                                <a class="J_menuItem" href="analysisShop2.html">贸易模式分析</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="analysisShop.html">电商平台分析</a>
+                                <a class="J_menuItem" href="analysisShop3.html">电商平台分析</a>
                             </li>
                             <li>
                                 <a href="marketAnalysis.html" class="J_menuItem">细分市场分析</a>
@@ -68,7 +71,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" style="font-size: 18px">
+                        <a class="J_menuItem" style="font-size: 17px">
                             <i class="fa fa-columns"></i>
                             <span class="nav-label">品牌分析</span>
                             <span class="fa arrow"></span>
@@ -103,7 +106,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" style="font-size: 18px">
+                        <a class="J_menuItem" style="font-size: 17px">
                             <i class="fa fa-table"></i>
                             <span class="nav-label">渠道分析</span>
                             <span class="fa arrow"></span>
@@ -136,7 +139,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" style="font-size: 18px">
+                        <a class="J_menuItem" style="font-size: 17px">
                             <i class="fa fa-bar-chart-o"></i>
                             <span class="nav-label">细分市场分析</span><span class="fa arrow"></span>
                         </a>
@@ -174,7 +177,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="chartsSyntun.html" style="font-size: 18px">
+                        <a class="J_menuItem" href="chartsSyntun.html" style="font-size: 17px">
                             <i class="fa fa-edit"></i>
                             <span class="nav-label">我的定制 </span>
                         </a>
@@ -199,16 +202,16 @@
                 </nav>
             </div>
             <div class="row content-tabs">
-                <button class="roll-nav roll-left J_tabLeft background"><i class="fa fa-backward"></i></button>
-                <nav class="page-tabs J_menuTabs background">
+                <!--<button class="roll-nav J_tabLeft background"></button>-->
+                <nav class="page-tabs J_menuTabs background roll-right">
                     <div class="page-tabs-content">
                         <a href="javascript:;" class="active J_menuTab" data-id="org.html">首页</a>
                     </div>
                 </nav>
-                <button class="roll-nav roll-right J_tabRight background"><i class="fa fa-forward"></i></button>
+                <!--<button class="roll-nav roll-right J_tabRight background"><i class="fa fa-forward"></i></button>-->
                 <div class="btn-group roll-nav roll-right">
                     <button class="dropdown J_tabClose background" data-toggle="dropdown">关闭操作<span class="caret"></span></button>
-                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                    <ul role="menu" class="dropdown-menu dropdown-menu-right" style="background: #252525">
                         <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
                         </li>
                         <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
@@ -234,10 +237,10 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h2 class="modal-title">账户设置</h2>
-                    <div class="modal-body" style="padding-bottom: 20px;">
+                    <div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="ibox-content">
+                                <div class="">
                                     <div>
                                         <ul class="nav nav-tabs">
                                             <li class="active shezhi">
@@ -248,60 +251,58 @@
                                             </li>
                                         </ul>
                                         <div class="tab-content">
-                                            <div id="tab-3" class="tab-pane active" style="height: 300px">
-                                                <div class="setBox">
+                                            <div id="tab-3" class="tab-pane active" style="">
+                                                <div class="setBox" style="float: left">
                                                     <img src="img/qr_code.png" height="180" width="180">
                                                 </div>
-                                                <div class="ibox-content">
+                                                <div style="float: left;width: 60%;margin-top: 5%">
                                                     <form class="form-horizontal m-t" id="signupForm" novalidate="novalidate">
-                                                        <div class="form-group has-error">
+                                                        <div class="form-group">
                                                             <label class="col-sm-3 control-label">姓氏：</label>
                                                             <div class="col-sm-8">
-                                                                <input id="firstname" name="firstname" class="form-control" type="text" aria-required="true" aria-describedby="firstname-error" aria-invalid="true">
-                                                                <span class="help-block m-b-none" style="display: none;"></span>
-                                                                <span id="firstname-error" class="help-block m-b-none"><i class="fa fa-times-circle"></i> 请输入你的姓</span></div>
+                                                                <input id="firstname" name="firstname" class="form-control" type="text">
+                                                                <!--<span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 这里写点提示的内容</span>-->
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group has-error">
+                                                        <div class="form-group">
                                                             <label class="col-sm-3 control-label">名字：</label>
                                                             <div class="col-sm-8">
-                                                                <input id="lastname" name="lastname" class="form-control" type="text" aria-required="true" aria-invalid="false" aria-describedby="lastname-error">
-                                                                <span id="lastname-error" class="help-block m-b-none"><i class="fa fa-times-circle"></i> 请输入您的名字</span></div>
+                                                                <input id="lastname" name="lastname" class="form-control" type="text" aria-required="true" aria-invalid="false">
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group has-success">
+                                                        <div class="form-group">
                                                             <label class="col-sm-3 control-label">用户名：</label>
                                                             <div class="col-sm-8">
-                                                                <input id="username" name="username" class="form-control help-block m-b-none" type="text" aria-required="true" aria-invalid="false" aria-describedby="username-error">
-                                                                <span id="username-error" class="help-block m-b-none"></span></div>
+                                                                <input id="username" name="username" class="form-control" type="text" aria-required="true" aria-invalid="true">
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group has-error">
-                                                            <label class="col-sm-3 control-label">密码：</label>
-                                                            <div class="col-sm-8">
-                                                                <input id="password" name="password" class="form-control" type="password" aria-required="true" aria-describedby="password-error">
-                                                                <span id="password-error" class="help-block m-b-none"><i class="fa fa-times-circle"></i> 请输入您的密码</span></div>
-                                                        </div>
-                                                        <div class="form-group has-error">
-                                                            <label class="col-sm-3 control-label">确认密码：</label>
-                                                            <div class="col-sm-8">
-                                                                <input id="confirm_password" name="confirm_password" class="form-control" type="password" aria-required="true" aria-describedby="confirm_password-error">
-                                                                <span class="help-block m-b-none" style="display: none;"></span>
-                                                                <span id="confirm_password-error" class="help-block m-b-none"><i class="fa fa-times-circle"></i> 请再次输入密码</span></div>
-                                                        </div>
-                                                        <div class="form-group has-error">
+                                                        <div class="form-group">
                                                             <label class="col-sm-3 control-label">E-mail：</label>
                                                             <div class="col-sm-8">
-                                                                <input id="email" name="email" class="form-control" type="email" aria-required="true" aria-describedby="email-error">
-                                                                <span id="email-error" class="help-block m-b-none"><i class="fa fa-times-circle"></i> 请输入您的E-mail</span></div>
+                                                                <input id="email" name="email" class="form-control" type="email">
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group has-error">
-                                                            <div class="col-sm-8 col-sm-offset-3">
-                                                                <div class="checkbox">
-                                                                    <label>
-                                                                        <input type="checkbox" class="checkbox" id="agree" name="agree" aria-required="true" aria-describedby="agree-error">
-                                                                        我已经认真阅读并同意《H+使用协议》
-                                                                    </label>
-                                                                </div>
-                                                                <span id="agree-error" class="help-block m-b-none"><i class="fa fa-times-circle"></i> 必须同意协议后才能注册</span></div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"> 联系人：</label>
+                                                            <div class="col-sm-8">
+                                                                <input id="people" name="username" class="form-control" type="text" aria-required="true" aria-invalid="true">
+                                                            </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">公司：</label>
+                                                            <div class="col-sm-8">
+                                                                <input id="company" name="username" class="form-control" type="text" aria-required="true" aria-invalid="true">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">电话：</label>
+                                                            <div class="col-sm-8">
+                                                                <input id="tel" name="username" class="form-control" type="text" aria-required="true" aria-invalid="true">
+                                                            </div>
+                                                        </div>
+
+
+
                                                         <div class="form-group">
                                                             <div class="col-sm-8 col-sm-offset-3">
                                                                 <button class="btn btn-primary" type="submit">提交</button>

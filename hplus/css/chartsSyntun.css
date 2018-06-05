@@ -1,0 +1,49 @@
+.tab_li li{
+    margin-right: 10px;
+}
+.agile-list li{
+    padding: 6px;
+}
+.sortable-list {
+    padding: 3px 3px;
+}
+table th{
+    text-align: center;
+}
+ul{
+    display: inline-block;
+}
+.inmodal .modal-header{
+    padding: 0px;
+}
+.bg{
+    background: #2d2d2d;
+    color: #fff;
+    border-color: #575757;
+    padding: 15px 20px 1px !important;
+}
+.table>thead>tr>th {
+    border-bottom: 1px solid #fff;
+}
+.table-bordered>thead>tr>th{
+    background: #2d2d2d;
+}
+.btn-warning{
+    background-color:#F78400;
+    border-color:#F78400;
+    color:#FFF
+}
+.btn-warning.active,.btn-warning:active,.btn-warning:focus,.btn-warning:hover,.open .dropdown-toggle.btn-warning{
+    background-color:#f7a54a;
+    border-color:#f7a54a;
+    color:#FFF
+}
+.btn-warning.btn-outline{
+    color: #ffffff;
+}
+.fontColor{
+    color: #444;
+}
+.agile-list li.success-element{
+    border-left: 3px solid #F78400;
+}

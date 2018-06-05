@@ -10,61 +10,8 @@
     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
     <script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>
     <script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="css/chartsSyntun.css">
     <title>报表定制</title>
-    <style>
-        .tab_li li{
-            margin-right: 10px;
-        }
-        .agile-list li{
-            padding: 6px;
-        }
-        .sortable-list {
-            padding: 3px 3px;
-        }
-        table th{
-            text-align: center;
-        }
-        ul{
-            display: inline-block;
-        }
-        .inmodal .modal-header{
-            padding: 0px;
-        }
-        .bg{
-            background: #2d2d2d;
-            color: #fff;
-            border-color: #575757;
-            padding: 15px 20px 1px !important;
-        }
-        /*.ibox-content,.ibox-title{*/
-
-        /*}*/
-        .table>thead>tr>th {
-            border-bottom: 1px solid #fff;
-        }
-        .table-bordered>thead>tr>th{
-            background: #2d2d2d;
-        }
-        .btn-warning{
-            background-color:#F78400;
-            border-color:#F78400;
-            color:#FFF
-        }
-        .btn-warning.active,.btn-warning:active,.btn-warning:focus,.btn-warning:hover,.open .dropdown-toggle.btn-warning{
-            background-color:#f7a54a;
-            border-color:#f7a54a;
-            color:#FFF
-        }
-        .btn-warning.btn-outline{
-            color: #ffffff;
-        }
-        .fontColor{
-            color: #444;
-        }
-        .agile-list li.success-element{
-            border-left: 3px solid #F78400;
-        }
-    </style>
 </head>
 <body class="gray-bg" style="background: #2d2d2d">
 <div class="wrapper wrapper-content  animated fadeInRight">
@@ -90,28 +37,36 @@
                     <tbody>
                     <tr id="ul">
                         <td>1</td>
-                        <td>销售金额报表集</td>
-                        <td>2018-04-10</td>
+                        <td>定制报表集</td>
+                        <td>2018-06-10</td>
                         <td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>
                         <td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>
                         <td><button type="button" class="btn btn-danger" id="shanchu">删除</button></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>渠道销售报表集</td>
-                        <td>2018-03-10</td>
-                        <td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>
-                        <td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>
-                        <td><button type="button" class="btn btn-danger">删除</button></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>行业成交价报表集</td>
-                        <td>2018-04-21</td>
-                        <td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>
-                        <td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>
-                        <td><button type="button" class="btn btn-danger">删除</button></td>
-                    </tr>
+                    <!--<tr>-->
+                        <!--<td>1</td>-->
+                        <!--<td>销售金额报表集</td>-->
+                        <!--<td>2018-05-10</td>-->
+                        <!--<td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>-->
+                        <!--<td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>-->
+                        <!--<td><button type="button" class="btn btn-danger">删除</button></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>2</td>-->
+                        <!--<td>渠道销售报表集</td>-->
+                        <!--<td>2018-04-10</td>-->
+                        <!--<td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>-->
+                        <!--<td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>-->
+                        <!--<td><button type="button" class="btn btn-danger">删除</button></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>3</td>-->
+                        <!--<td>行业成交价报表集</td>-->
+                        <!--<td>2018-03-21</td>-->
+                        <!--<td><button type="button" class="btn btn-warning" onClick="look()">查看</button></td>-->
+                        <!--<td><button type="button" class="btn btn-warning" data-target="#myModal5" data-toggle="modal">修改</button></td>-->
+                        <!--<td><button type="button" class="btn btn-danger">删除</button></td>-->
+                    <!--</tr>-->
                     </tbody>
                 </table>
             </div>
@@ -123,13 +78,11 @@
                 </div>
                 <div class="ibox-content bg col-sm-12" style="min-height: 400px;height: auto;">
                     <ul class="sortable-list connectList agile-list ui-sortable" style="padding: 0px 15px; display: none" id="chartUl">
-                        <li class="success-element fontColor">空气净化器</li>
-                        <li class="success-element fontColor">功能奶</li>
-                        <li class="success-element fontColor">功能饮料</li>
-                        <li class="success-element fontColor">行业量价关系分析</li>
-                        <li class="success-element fontColor">行业销售量</li>
-                        <li class="success-element fontColor">空气净化器</li>
-                        <li class="success-element fontColor">功能奶</li>
+                        <li class="success-element fontColor">行业销售额</li>
+                        <li class="success-element fontColor">细分市场分析</li>
+                        <li class="success-element fontColor">成交均价分析</li>
+                        <li class="success-element fontColor">TOP10品牌排行</li>
+                        <li class="success-element fontColor">适用人群</li>
                     </ul>
                 </div>
             </div>
