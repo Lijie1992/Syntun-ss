@@ -23,17 +23,22 @@
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
         <div class="col-sm-12">
-            <div class="ibox-content">
+            <div class="ibox-content" style="border: none">
                 <div id="search" style="width: 100%;height: 45px"></div>
             </div>
-            <div class="ibox-content">
+            <div class="ibox-content" style="border: none">
                 <div class="col-sm-6">
-                    <div id="echartsDemo" style="width: 100%;height:400px;" ></div>
+                    <div id="echartsDemo" style="width: 100%;height:470px;" ></div>
                 </div>
                 <div class="col-sm-6">
-                    <div id="echartsDemos" style="width: 100%;height:400px;" ></div>
+                    <div id="echartsDemos" style="width: 100%;height:470px;" ></div>
                 </div>
             </div>
+            <!--<div class="ibox-content" style="margin-top: 10px">-->
+                <!--<div class="col-sm-12">-->
+                    <!--<div id="echartsDemos" style="width: 100%;height:400px;" ></div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
@@ -47,21 +52,21 @@
             title: {
                 text: '销售份额',
                 left:'center',
-                top:'5%',
+                top:'7%',
                 textStyle:{
                     color:'#fff',
                     fontStyle:'normal',
                 },
             },
             grid: {
-                y2: 100,
+                y2: 120,
             },
             tooltip: {
                 trigger: 'axis'
             },
             toolbox: {
                 show: true,
-                top:'5%',
+                top:'7%',
                 feature: {
                     magicType: {show: true, type: ['line','bar',]},
                     restore : {show: true},
@@ -74,7 +79,7 @@
                 data: ['销售额', '京东', '苏宁易购','我买网','国美在线', '当当网', '亚马逊','一号店'],
                 y: 'bottom',
                 textStyle:{
-                    fontSize:15,
+                    fontSize:14,
                     color:'#fff'
                 }
             },
@@ -180,7 +185,7 @@
             title: {
                 text: '销售额',
                 left:'center',
-                top:'5%',
+                top:'7%',
                 textStyle:{
                     color:'#fff',
                     fontStyle:'normal',
@@ -190,11 +195,11 @@
                 trigger: 'axis'
             },
             grid: {
-                y2: 100,
+                y2: 120,
             },
             toolbox: {
                 show: true,
-                top:'5%',
+                top:'7%',
                 feature: {
                     restore : {show: true},
                     saveAsImage: {
@@ -206,7 +211,7 @@
                 data: ['销售额', '京东', '苏宁易购','我买网','国美在线', '当当网', '亚马逊','一号店'],
                 y: 'bottom',
                 textStyle:{
-                    fontSize:15,
+                    fontSize:14,
                     color:'#fff'
                 }
             },

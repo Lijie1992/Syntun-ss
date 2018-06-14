@@ -24,21 +24,53 @@
         <!--左侧导航开始-->
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse" style="background: #252525;">
-                <ul class="nav" id="side-menu" style="font-size: 16px">
+                <ul class="nav" id="side-menu">
                     <!--logo-->
-                    <li class="nav-header" style="background: #252525;">
+                    <!--<li class="nav-header">-->
+                    <li style="background: #252525;padding: 33px 25px 25px 25px;">
                         <div class="dropdown profile-element" style="text-align: center;">
-                            <span><img alt="image" class="" src="img\syntun_logo.png"></span>
+                            <span>
+                                <!--<img alt="image" class="" src="img\syntun_logo.png" width="110px">-->
+                                <img src="img/logos.png" height="40" width="150" style="margin-bottom: 10px"/>
+                            </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                                    <img src="img/logos.png" height="48" width="130" style="margin-top: 5px;"/>
+                                    <!--<img src="img/logos.png" height="42" width="130" style="margin-top: 5px;"/>-->
+                                    <!--<img class="img-circle" src="img/touxiang.png" width="100"/>-->
+                                    <img class="" src="img/syntunLogo.png" width="100" height="100"/>
                                 </span>
                             </a>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                                <span class="clear">
+                                    <span class="text-muted text-xs block" style="margin-top: 10px;
+    font-size: 16px;color: #ffffff">星图数据<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li>
+                                    <a class="J_menuItem" href="form_avatar.html" data-index="0">修改头像</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="profile.html" data-index="1">个人资料</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="contacts.html" data-index="2">联系我们</a>
+                                </li>
+                                <li>
+                                    <a class="J_menuItem" href="mailbox.html" data-index="3">信箱</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="login.html">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element" style="color: #F78400">DM
                         </div>
                     </li>
                     <!--logo end-->
                     <li>
-                        <a class="J_menuItem" style="font-size: 17px">
+                        <a style="font-size: 15px">
                             <i class="fa fa-home"></i>
                             <span class="nav-label">行业概览</span>
                             <span class="fa arrow"></span>
@@ -71,7 +103,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" style="font-size: 17px">
+                        <a style="font-size: 15px">
                             <i class="fa fa-columns"></i>
                             <span class="nav-label">品牌分析</span>
                             <span class="fa arrow"></span>
@@ -106,7 +138,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" style="font-size: 17px">
+                        <a style="font-size: 15px">
                             <i class="fa fa-table"></i>
                             <span class="nav-label">渠道分析</span>
                             <span class="fa arrow"></span>
@@ -139,7 +171,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" style="font-size: 17px">
+                        <a style="font-size: 15px">
                             <i class="fa fa-bar-chart-o"></i>
                             <span class="nav-label">细分市场分析</span><span class="fa arrow"></span>
                         </a>
@@ -177,7 +209,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="J_menuItem" href="chartsSyntun.html" style="font-size: 17px">
+                        <a class="J_menuItem" href="chartsSyntun.html" style="font-size: 15px">
                             <i class="fa fa-edit"></i>
                             <span class="nav-label">我的定制 </span>
                         </a>
@@ -188,27 +220,15 @@
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;background: #252525;">
-                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    </div>
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li class="dropdown hidden-xs">
-                            <a data-toggle="modal" data-target="#myModal5" id="shezhi">
-                                <i class="fa fa-tasks"></i> 设置
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="row content-tabs">
-                <!--<button class="roll-nav J_tabLeft background"></button>-->
+            <div class="row content-tabs" id="nav_heng">
                 <nav class="page-tabs J_menuTabs background roll-right">
                     <div class="page-tabs-content">
+                        <a class="navbar-minimalize minimalize-styl-2" id="showHide" href="#" style="margin: 0px;background: #F78400">
+                            <i class="fa fa-bars" style="color: #fff"></i>
+                        </a>
                         <a href="javascript:;" class="active J_menuTab" data-id="org.html">首页</a>
                     </div>
                 </nav>
-                <!--<button class="roll-nav roll-right J_tabRight background"><i class="fa fa-forward"></i></button>-->
                 <div class="btn-group roll-nav roll-right">
                     <button class="dropdown J_tabClose background" data-toggle="dropdown">关闭操作<span class="caret"></span></button>
                     <ul role="menu" class="dropdown-menu dropdown-menu-right" style="background: #252525">
@@ -218,9 +238,9 @@
                         </li>
                     </ul>
                 </div>
-                <a href="login.html" class="roll-nav roll-right J_tabExit background"><i class="fa fa fa-sign-out"></i> 退出</a>
+                <a class="roll-nav roll-right J_tabExit background" data-toggle="modal" data-target="#myModal5" id="shezhi"><i class="fa fa fa-sign-out"></i>设置</a>
             </div>
-            <!--主体内容-->
+    <!--主体内容-->
             <div class="row J_mainContent" id="content-main">
                 <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="" frameborder="0" data-id="index_v1.html" seamless="" style="background: #2d2d2d"></iframe>
             </div>
@@ -339,6 +359,11 @@
 <script src="js\hplus.min.js?v=4.1.0"></script>
 <script type="text/javascript" src="js\contabs.min.js"></script>
 <script src="js\plugins\pace\pace.min.js"></script>
-<!--<script src="js\plugins\datapicker\bootstrap-datepicker.js"></script>-->
-<!--<script src="plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>-->
+<!--<script>-->
+    <!--$(document).ready(function(){-->
+        <!--$("#showHide").click(function(){-->
+            <!--$("#nav_heng").toggle();-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 </html>

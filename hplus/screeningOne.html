@@ -1,3 +1,4 @@
+<div class="style" id="showHide" style="display: none">
 <form id="searchForm" href="#">
     <table class="table tableUser" style="text-align: center;margin: 0px;">
         <tr>
@@ -24,17 +25,33 @@
             </td>
             <td class="col-sm-3" style="text-align: right;">
                 <p class='btn btn-warning btn-sm back-btn'> 查询</p>
-                <p class='btn btn-warning btn-sm back-btn'>数据导出</p>
-                <p class='btn btn-warning btn-sm back-btn'>加入定制</p>
+                <!--<p class='btn btn-warning btn-sm back-btn'>数据导出</p>-->
+                <!--<p class='btn btn-warning btn-sm back-btn'>加入定制</p>-->
             </td>
         </tr>
     </table>
 </form>
+</div>
+<style>
+    .style{
+        border: 1px solid transparent;
+        border-left: 4px solid #F78400 !important;
+        box-shadow: 0 1px 6px #666;
+        border-radius: 4px;
+        overflow: hidden;
+        z-index: 1200;
+    }
+</style>
 <script type="text/javascript">
-//    debugger
-//    $(document).ready(function() {
-//        $('.select2').select2();
-//    });
+    function showdiv(){
+        if(showdiv_display = document.getElementById('showHide').style.display=='none'){
+            document.getElementById('showHide').style.display='block';
+            $("#showHide").css("height","45px");
+        }else{
+            document.getElementById('showHide').style.display='none';
+            $("#showHide").css("height","0px");
+        }
+    }
     $(".date-picker").datepicker({
         language: "zh-CN",
         autoclose: true
