@@ -26,9 +26,13 @@
             <div class="ibox-content">
                 <div>
                     <p class='btn btn-warning btn-sm back-btn screen' onclick="showdiv()" id="button">筛选</p>
-                    <p class='btn btn-warning btn-sm back-btn screen'>数据导出</p>
-                    <p class='btn btn-warning btn-sm back-btn screen'>加入定制</p>
-                    <span class="position"> 当前位置：行业概览>行业销售量>2018-05-01到2018-06-01>天猫</span>
+                    <span class="position"> 筛选条件：</span>
+                    <div class="selectDiv">
+                        <span>店铺类型：<span class="selectColor">京东 <span class="selectDel">X</span></span></span>
+                    </div>
+                    <div class="selectDiv">
+                        <span>贸易模式：<span class="selectColor">模式 <span class="selectDel">X</span></span></span>
+                    </div>
                 </div>
                 <div id="search" style="width: 100%;"></div>
             </div>
@@ -54,7 +58,8 @@
             },
         },
         tooltip: {
-            trigger: 'axis'
+            trigger: 'axis',
+            formatter: '{a0}:{c0}万 <br /> {a1}:{c1}%',
         },
         toolbox: {
             show: true,
@@ -80,7 +85,6 @@
                 type: 'category',
                 axisLabel :{
                     interval:0,
-//                    rotate: -300
                 },
                 data: [],
                 axisPointer: {
@@ -90,14 +94,13 @@
                 axisLine: {
                     lineStyle: {
                         type: 'solid',
-                        color: '#fff',//左边线的颜色
+                        color: '#979696',//左边线的颜色
                         width:'2'//坐标线的宽度
                     }
                 },
             }
         ],
         yAxis: [
-
             {
                 splitLine: { show: false },//去除网格线
                 type: 'value',
@@ -105,7 +108,7 @@
                 axisLine: {
                     lineStyle: {
                         type: 'solid',
-                        color: '#fff',//左边线的颜色
+                        color: '#979696',//左边线的颜色
                         width:'2'//坐标线的宽度
                     }
                 },
@@ -120,13 +123,10 @@
                 axisLine: {
                     lineStyle: {
                         type: 'solid',
-                        color: '#fff',//左边线的颜色
+                        color: '#979696',//左边线的颜色
                         width:'2'//坐标线的宽度
                     }
                 },
-//                min: 0,
-//                max: 100,
-//                interval: 10,
                 axisLabel: {
                     formatter: '{value} %'
                 }
@@ -137,14 +137,14 @@
                 name: '销售量',
                 type: 'bar',
                 data: [],
-                barWidth : 40,//柱图宽度
-                color: ['#F78400']
+                barWidth : 30,//柱图宽度
+                color: ['#ee5a3c']
             },
             {
                 name: '销售量增长率',
                 type: 'line',
                 yAxisIndex: 1,
-                color: ['#858688'],
+                color: ['#36a9e0'],
                 data: [10, 20, 40, 30, 60, 50, 40,99,33,65,87]
             },
         ]

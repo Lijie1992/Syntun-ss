@@ -14,12 +14,19 @@
 .nav{
     background: #252525 !important;
 }
-#side-menu a:hover,#side-menu a:visited,#side-menu a:active{
+#side-menu a:visited,#side-menu a:active{
     background-color: #F78400 !important;
 }
+#side-menu a:hover{
+    background-color: #2d2d2d !important;
+}
 /*设置*/
-.nav-tabs a:hover,.nav-tabs a:visited{
+.nav-tabs a:visited{
     background-color: #F78400 !important;
+    color: #fff !important;
+}
+.nav-tabs a:hover{
+    background-color: #2d2d2d !important;
     color: #fff !important;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{

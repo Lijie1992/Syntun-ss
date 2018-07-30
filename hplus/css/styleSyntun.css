@@ -20,7 +20,7 @@
     border-color: #575757;
     padding: 0px;
     border: none;
-    /*padding: 15px 20px 1px !important;*/
+    padding: 5px 20px 1px !important;
 }
 .echarts{
     margin-top: 10px
@@ -39,14 +39,27 @@
 }
 .screen{
     margin: 0px 0px 5px 0px;
+    /*font-size: 14px;*/
 }
-.screenDiv{
-    margin: 10px 14px 0px 0px;
+.selectDiv{
+    display: inline-block;
+    /*font-size: 14px;*/
+    border: solid 1px #858585;
+    margin-left: 6px;
+    padding: 2px 5px;
+}
+.selectColor{
+    color:#f7a54a ;
+}
+.selectDel{
+    margin-left: 5px;
+    cursor:pointer;
 }
 .position{
-    font-size: 14px;
+    /*font-size: 14px;*/
     margin-left: 10px;
 }
+
 /*background: #2d2d2d;*/
 /*color: #fff;*/
 /*border-color: #666;*/
