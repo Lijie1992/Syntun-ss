@@ -39,7 +39,6 @@
 }
 .screen{
     margin: 0px 0px 5px 0px;
-    /*font-size: 14px;*/
 }
 .selectDiv{
     display: inline-block;
@@ -53,13 +52,14 @@
 }
 .selectDel{
     margin-left: 5px;
+    color:#f7a54a ;
     cursor:pointer;
 }
+.collection{
+    height: 20px;
+    text-align: right;
+    cursor: pointer;
+}
 .position{
-    /*font-size: 14px;*/
     margin-left: 10px;
 }
-
-/*background: #2d2d2d;*/
-/*color: #fff;*/
-/*border-color: #666;*/

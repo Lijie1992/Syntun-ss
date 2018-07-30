@@ -25,13 +25,15 @@
         <div class="col-sm-12">
             <div class="ibox-content">
                 <div>
+                    <!--<p class='btn btn-warning btn-sm back-btn screen'>加入定制</p>-->
+                    <!--<p class='btn btn-warning btn-sm back-btn screen'>数据导出</p>-->
                     <p class='btn btn-warning btn-sm back-btn screen' onclick="showdiv()" id="button">筛选</p>
                     <span class="position"> 筛选条件：</span>
                     <div class="selectDiv">
-                        <span>店铺类型：<span class="selectColor">京东 <span class="selectDel">X</span></span></span>
+                        <span>店铺类型：</span><span class="selectColor">京东</span><span class="selectDel">X</span>
                     </div>
                     <div class="selectDiv">
-                        <span>贸易模式：<span class="selectColor">模式 <span class="selectDel">X</span></span></span>
+                        <span>贸易模式：</span><span class="selectColor">京东</span><span class="selectDel">X</span>
                     </div>
                 </div>
                 <div id="search" style="width: 100%;"></div>
@@ -46,120 +48,127 @@
 </html>
 <script type="text/javascript">
     $("#search").load("screeningFour.html");
-    var myChart = echarts.init(document.getElementById('echartsDemo'));
-    var option = {
-        title: {
-            text: '行业销售量',
-            left:'center',
-            top:'5%',
-            textStyle:{
-                color:'#fff',
-                fontStyle:'normal',
-            },
-        },
-        tooltip: {
-            trigger: 'axis',
-            formatter: '{a0}:{c0}万 <br /> {a1}:{c1}%',
-        },
-        toolbox: {
-            show: true,
-            top:'5%',
-            feature: {
-                restore : {show: true},
-                saveAsImage: {
-                    show:true,
-                }
-            }
-        },
-        legend: {
-            data: ['销售量','销售量增长率'],
-            y: 'bottom',
-            textStyle:{
-                fontSize:14,
-                color:'#fff'
-            }
-        },
-        xAxis: [
-            {
-                splitLine: { show: false },//去除网格线
-                type: 'category',
-                axisLabel :{
-                    interval:0,
-                },
-                data: [],
-                axisPointer: {
-                    type: 'shadow'
-                },
-
-                axisLine: {
-                    lineStyle: {
-                        type: 'solid',
-                        color: '#979696',//左边线的颜色
-                        width:'2'//坐标线的宽度
-                    }
-                },
-            }
-        ],
-        yAxis: [
-            {
-                splitLine: { show: false },//去除网格线
-                type: 'value',
-                name: '销售量',
-                axisLine: {
-                    lineStyle: {
-                        type: 'solid',
-                        color: '#979696',//左边线的颜色
-                        width:'2'//坐标线的宽度
-                    }
-                },
-                axisLabel: {
-                    formatter: '{value} 元'
-                }
-            },
-            {
-                splitLine: { show: false },//去除网格线
-                type: 'value',
-                name: '销售量增长率',
-                axisLine: {
-                    lineStyle: {
-                        type: 'solid',
-                        color: '#979696',//左边线的颜色
-                        width:'2'//坐标线的宽度
-                    }
-                },
-                axisLabel: {
-                    formatter: '{value} %'
-                }
-            },
-        ],
-        series: [
-            {
-                name: '销售量',
-                type: 'bar',
-                data: [],
-                barWidth : 30,//柱图宽度
-                color: ['#ee5a3c']
-            },
-            {
-                name: '销售量增长率',
-                type: 'line',
-                yAxisIndex: 1,
-                color: ['#36a9e0'],
-                data: [10, 20, 40, 30, 60, 50, 40,99,33,65,87]
-            },
-        ]
-    };
-    $.ajax({
-        type : "get",
-        url : "http://newdm.syntun.com:8089/index.php/api/index/index",
-        dataType : "json",
-        success : function(result) {
-            debugger
-            option.xAxis[0].data = result.xAxis.data;
-            option.series[0].data  = result.sales_amount.data;
-            option.series[1].data  = result.sales_amount_rate.data;
-            myChart.setOption(option);
-            window.onresize = myChart.resize;
-        }
+    $(function () {
+        $(".selectDel").click(function () {
+            $(this).parent().remove();
+        })
     });
+    $(document).ready(function () {
+        var myChart = echarts.init(document.getElementById('echartsDemo'));
+        var option = {
+            title: {
+                text: '行业销售量',
+                left:'center',
+                top:'5%',
+                textStyle:{
+                    color:'#fff',
+                    fontStyle:'normal',
+                },
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: '{a0}:{c0}万 <br /> {a1}:{c1}%',
+            },
+            toolbox: {
+                show: true,
+                top:'5%',
+                feature: {
+                    restore : {show: true},
+                    saveAsImage: {
+                        show:true,
+                    }
+                }
+            },
+            legend: {
+                data: ['销售量','销售量增长率'],
+                y: 'bottom',
+                textStyle:{
+                    fontSize:14,
+                    color:'#fff'
+                }
+            },
+            xAxis: [
+                {
+                    splitLine: { show: false },//去除网格线
+                    type: 'category',
+                    axisLabel :{
+                        interval:0,
+                    },
+                    data: [],
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#979696',//左边线的颜色
+                            width:'2'//坐标线的宽度
+                        }
+                    },
+                }
+            ],
+            yAxis: [
+                {
+                    splitLine: { show: false },//去除网格线
+                    type: 'value',
+                    name: '销售量',
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#979696',//左边线的颜色
+                            width:'2'//坐标线的宽度
+                        }
+                    },
+                    axisLabel: {
+                        formatter: '{value} 元'
+                    }
+                },
+                {
+                    splitLine: { show: false },//去除网格线
+                    type: 'value',
+                    name: '销售量增长率',
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#979696',//左边线的颜色
+                            width:'2'//坐标线的宽度
+                        }
+                    },
+                    axisLabel: {
+                        formatter: '{value} %'
+                    }
+                },
+            ],
+            series: [
+                {
+                    name: '销售量',
+                    type: 'bar',
+                    data: [],
+                    barWidth : 30,//柱图宽度
+                    color: ['#ee5a3c']
+                },
+                {
+                    name: '销售量增长率',
+                    type: 'line',
+                    yAxisIndex: 1,
+                    color: ['#36a9e0'],
+                    data: [10, 20, 40, 30, 60, 50, 40,99,33,65,87]
+                },
+            ]
+        };
+        $.ajax({
+            type : "get",
+            url : "http://newdm.syntun.com:8089/index.php/api/index/index",
+            dataType : "json",
+            success : function(result) {
+                debugger
+                option.xAxis[0].data = result.xAxis.data;
+                option.series[0].data  = result.sales_amount.data;
+                option.series[1].data  = result.sales_amount_rate.data;
+                myChart.setOption(option);
+                window.onresize = myChart.resize;
+            }
+        });
+    })
 </script>

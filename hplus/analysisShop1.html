@@ -26,9 +26,9 @@
             <div class="ibox-content">
                 <div>
                     <p class='btn btn-warning btn-sm back-btn screen' onclick="showdiv()" id="button">筛选</p>
-                    <span class="position"> 条件：</span>
+                    <span class="position"> 筛选条件：</span>
                     <div class="selectDiv">
-                        <span>时间：<span class="selectColor">2018-05-12 <span class="selectDel">X</span></span></span>
+                        <span>时间：</span><span class="selectColor">2018-05-12 </span><span class="selectDel">X</span>
                     </div>
                 </div>
                 <div id="search" style="width: 100%;"></div>
@@ -48,6 +48,11 @@
 </html>
 <script type="text/javascript">
     $("#search").load("screeningOne.html");
+    $(function () {
+        $(".selectDel").click(function () {
+            $(this).parent().remove();
+        })
+    })
     $(document).ready(function () {
         var myChart = echarts.init(document.getElementById('echartsDemo'));
         var option = {
